@@ -1,150 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Gallery - Home</title>
-    <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina Creativă Unică</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #232526, #414345);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: #fff;
-        }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
 
-        h1 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 40px;
-            color: #f9a825;
-            text-shadow: 0 0 15px rgba(249, 168, 37, 0.8);
-        }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 1200px;
-            width: 100%;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-        }
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
 
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .nav-buttons a {
-            text-decoration: none;
-            color: #fff;
-            padding: 15px 30px;
-            background-color: #f9a825;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
+    .avatar:hover {
+      transform: rotate(360deg);
+    }
 
-        .nav-buttons a:hover {
-            transform: scale(1.1);
-            background-color: #c17900;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
 
-        .gallery-preview {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            width: 100%;
-            padding: 20px;
-        }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      transition: color 0.3s, transform 0.3s;
+    }
 
-        .gallery-preview img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    nav a:hover {
+      color: #f68084;
+      transform: scale(1.1);
+    }
 
-        .gallery-preview img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(249, 168, 37, 0.7);
-        }
+    section {
+      min-height: 100vh;
+      padding: 100px 20px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(120deg, #a6c0fe, #f68084);
+      color: white;
+    }
 
-        .footer {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 1rem;
-            color: #aaa;
-        }
+    section:nth-child(even) {
+      background: linear-gradient(120deg, #f68084, #a6c0fe);
+    }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .nav-buttons a {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
+    section h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-out;
+    }
 
-            h1 {
-                font-size: 2rem;
-            }
-        }
+    section p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      animation: fadeInUp 2s ease-out;
+    }
 
-        @media (max-width: 480px) {
-            .nav-buttons {
-                flex-direction: column;
-                gap: 20px;
-            }
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
 
-            .gallery-preview img {
-                height: 150px;
-            }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-            h1 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <h1>Welcome to Dynamic Gallery</h1>
-        
-        <div class="nav-buttons">
-            <a href="indexgif.html" target="_blank">View GIFs</a>
-            <a href="indexpcback.html" target="_blank">View PcBacks</a>
-            <a href="indexback.html" target="_blank">View Backgrounds</a>
-        </div>
-
-        <div class="gallery-preview">
-            <!-- Preview Images - These are placeholders to represent each gallery -->
-            <img src="gifs/gif1.png" alt="GIF Preview">
-            <img src="pcback/pcback1.png" alt="PcBack Preview">
-            <img src="backgrounds/background1.png" alt="Background Preview">
-            <img src="gifs/gif2.png" alt="GIF Preview">
-            <img src="pcback/pcback2.png" alt="PcBack Preview">
-            <img src="backgrounds/background2.png" alt="Background Preview">
-        </div>
-
-        <div class="footer">
-            <p>&copy; 2024 Dynamic Gallery. All Rights Reserved.</p>
-        </div>
+  <header>
+    <div class="avatar">
+      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Avatar" />
     </div>
+    <nav>
+      <ul>
+        <li><a href="#section1">Acasa</a></li>
+        <li><a href="#section2">Despre</a></li>
+        <li><a href="#section3">Servicii</a></li>
+        <li><a href="#section4">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="section1">
+    <h1>Bine ai venit!</h1>
+    <p>Explorati o pagina unica, plina de creativitate si inovatie. Aveti la dispozitie un design modern cu interactiuni placute si continut care va captiveaza.</p>
+  </section>
+
+  <section id="section2">
+    <h1>Despre Noi</h1>
+    <p>Suntem o echipa pasionata de design si dezvoltare web, creand experiente digitale captivante si interactive. Fiecare proiect al nostru este conceput cu atentie la detalii si performanta.</p>
+  </section>
+
+  <section id="section3">
+    <h1>Serviciile Noastre</h1>
+    <p>Oferim o gama variata de servicii creative: design web, dezvoltare front-end, UI/UX, animatii interactive si optimizare SEO. Indiferent de provocare, gasim solutia potrivita pentru nevoile tale.</p>
+  </section>
+
+  <section id="section4">
+    <h1>Contactati-ne</h1>
+    <p>Vreti sa colaboram? Suntem aici pentru a raspunde intrebarilor voastre si pentru a discuta detalii despre proiectul vostru. Scrieti-ne si vom reveni cu o oferta personalizata.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Creatie Unica. Toate drepturile rezervate.</p>
+  </footer>
 
 </body>
 </html>
