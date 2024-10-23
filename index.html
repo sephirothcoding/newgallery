@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagina Creativă Unică</title>
+  <title>Pagina Creativă Unică - Stil Masculin</title>
   <style>
     * {
       margin: 0;
@@ -13,30 +13,60 @@
 
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
+      background-color: #1c1c1e;
+      color: #fff;
       scroll-behavior: smooth;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background: rgba(34, 34, 34, 0.95);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       z-index: 1000;
-      padding: 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      padding: 15px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #b8b8d1;
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: rgba(60, 60, 68, 0.5);
+      border-radius: 30px;
+      transition: all 0.4s ease;
+    }
+
+    .menu a:hover {
+      color: #fff;
+      background-color: #3a3a3c;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
     }
 
     .avatar {
-      width: 50px;
-      height: 50px;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       overflow: hidden;
-      transition: transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
     }
 
     .avatar img {
@@ -47,121 +77,97 @@
 
     .avatar:hover {
       transform: rotate(360deg);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
 
-    nav ul {
-      list-style: none;
+    .container {
+      max-width: 1000px;
+      margin: 100px auto 20px auto;
       display: flex;
-      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-around;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-size: 18px;
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    nav a:hover {
-      color: #f68084;
-      transform: scale(1.1);
-    }
-
-    section {
-      min-height: 100vh;
-      padding: 100px 20px;
+    .box {
+      background: linear-gradient(135deg, #2d2d30, #4a4a51);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px;
+      width: 45%;
+      min-height: 250px;
       text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: linear-gradient(120deg, #a6c0fe, #f68084);
-      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    section:nth-child(even) {
-      background: linear-gradient(120deg, #f68084, #a6c0fe);
+    .box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
-    section h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      animation: fadeInDown 1s ease-out;
+    .box h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
     }
 
-    section p {
-      font-size: 1.5rem;
-      max-width: 800px;
-      animation: fadeInUp 2s ease-out;
+    .box p {
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
     footer {
-      padding: 20px;
+      margin: 50px 0;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(20, 20, 20, 0.8);
+      padding: 20px;
+      width: 100%;
+      position: relative;
+      bottom: 0;
     }
 
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    footer p {
+      color: #b8b8d1;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="avatar">
-      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Avatar" />
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#section1">Acasa</a></li>
-        <li><a href="#section2">Despre</a></li>
-        <li><a href="#section3">Servicii</a></li>
-        <li><a href="#section4">Contact</a></li>
-      </ul>
+    <nav class="menu">
+      <a href="#home">Acasa</a>
+      <a href="#about">Despre</a>
+      <a href="#services">Servicii</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section id="section1">
-    <h1>Bine ai venit!</h1>
-    <p>Explorati o pagina unica, plina de creativitate si inovatie. Aveti la dispozitie un design modern cu interactiuni placute si continut care va captiveaza.</p>
-  </section>
+  <div class="avatar">
+    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Avatar" />
+  </div>
 
-  <section id="section2">
-    <h1>Despre Noi</h1>
-    <p>Suntem o echipa pasionata de design si dezvoltare web, creand experiente digitale captivante si interactive. Fiecare proiect al nostru este conceput cu atentie la detalii si performanta.</p>
-  </section>
+  <main class="container">
+    <div class="box" id="home">
+      <h2>Bine ai venit!</h2>
+      <p>Explorează un nou univers al designului creativ și inovației. Experiențe unice și captivante te așteaptă în paginile noastre.</p>
+    </div>
 
-  <section id="section3">
-    <h1>Serviciile Noastre</h1>
-    <p>Oferim o gama variata de servicii creative: design web, dezvoltare front-end, UI/UX, animatii interactive si optimizare SEO. Indiferent de provocare, gasim solutia potrivita pentru nevoile tale.</p>
-  </section>
+    <div class="box" id="about">
+      <h2>Despre Noi</h2>
+      <p>Suntem o echipă dedicată, specializată în crearea de site-uri web dinamice, experiențe interactive și soluții digitale personalizate.</p>
+    </div>
 
-  <section id="section4">
-    <h1>Contactati-ne</h1>
-    <p>Vreti sa colaboram? Suntem aici pentru a raspunde intrebarilor voastre si pentru a discuta detalii despre proiectul vostru. Scrieti-ne si vom reveni cu o oferta personalizata.</p>
-  </section>
+    <div class="box" id="services">
+      <h2>Servicii</h2>
+      <p>Oferim o gamă variată de servicii, incluzând design web, dezvoltare de aplicații, UI/UX, și multe altele, pentru a răspunde nevoilor tale.</p>
+    </div>
+
+    <div class="box" id="contact">
+      <h2>Contact</h2>
+      <p>Dacă ai nevoie de ajutor pentru proiectele tale, nu ezita să ne contactezi. Suntem aici pentru tine, gata să colaborăm.</p>
+    </div>
+  </main>
 
   <footer>
-    <p>&copy; 2024 Creatie Unica. Toate drepturile rezervate.</p>
+    <p>&copy; 2024 Pagina Creativă Unică. Toate drepturile rezervate.</p>
   </footer>
 
 </body>
