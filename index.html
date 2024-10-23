@@ -204,16 +204,18 @@
       height: 100%;
       pointer-events: none;
       z-index: 2000; /* Z-index ridicat pentru a fi peste toate elementele */
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .snowflake {
       position: absolute;
-      top: -10px;
       color: white;
       font-size: 1.5em;
       user-select: none;
       pointer-events: none;
       animation: fall 10s linear infinite;
+      opacity: 0.8;
     }
 
     @keyframes fall {
@@ -229,7 +231,7 @@
       }
     }
 
-    /* Generăm mai mulți fulgi cu diferite viteze */
+    /* Generăm mai mulți fulgi cu diferite viteze și poziții */
     .snowflake:nth-child(odd) {
       animation-duration: 8s;
       animation-timing-function: linear;
@@ -239,6 +241,18 @@
       animation-duration: 12s;
       animation-timing-function: ease-in-out;
     }
+
+    /* Poziționăm fulgii pe întreaga lățime a paginii */
+    .snowflake:nth-child(1) { left: 10%; }
+    .snowflake:nth-child(2) { left: 20%; }
+    .snowflake:nth-child(3) { left: 30%; }
+    .snowflake:nth-child(4) { left: 40%; }
+    .snowflake:nth-child(5) { left: 50%; }
+    .snowflake:nth-child(6) { left: 60%; }
+    .snowflake:nth-child(7) { left: 70%; }
+    .snowflake:nth-child(8) { left: 80%; }
+    .snowflake:nth-child(9) { left: 90%; }
+    .snowflake:nth-child(10) { left: 100%; }
 
   </style>
 </head>
