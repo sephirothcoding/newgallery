@@ -15,8 +15,9 @@
       font-family: 'Arial', sans-serif;
       background-color: #fff;
       color: #333;
-      scroll-behavior: smooth;
       display: flex;
+      height: 100vh;
+      align-items: flex-start;
     }
 
     header {
@@ -54,13 +55,13 @@
       box-shadow: 0 0 15px rgba(255, 99, 99, 0.4);
     }
 
-    .avatar {
+    .avatar-container {
       width: 25%; /* Avatarul ocupă 25% din lățimea paginii */
+      height: 100vh; /* Ocupă înălțimea completă */
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh; /* Avatarul ocupă înălțimea completă a paginii */
-      padding: 20px;
+      background-color: #f0f0f0;
     }
 
     .avatar img {
@@ -78,16 +79,15 @@
 
     .container {
       width: 75%; /* Containerele ocupă restul de 75% din pagină */
-      padding: 100px 20px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      align-items: center;
     }
 
     .box {
       background: linear-gradient(135deg, #ff4d4d, #ff9999);
-      width: 90%; /* Lățime de 90% pentru containere */
+      width: 100%; /* Lățime de 100% din spațiul disponibil */
       height: 100px; /* Înălțime fixă de 100px */
       border-radius: 15px;
       padding: 20px;
@@ -143,8 +143,10 @@
     </nav>
   </header>
 
-  <div class="avatar">
-    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Avatar" />
+  <div class="avatar-container">
+    <div class="avatar">
+      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Avatar" />
+    </div>
   </div>
 
   <main class="container">
