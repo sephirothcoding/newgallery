@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagina Creativă Unică - Roșu, Negru, Silver și Alb</title>
+  <title>Pagina Creativă Unică - Roșu și Alb</title>
   <style>
     * {
       margin: 0;
@@ -13,8 +13,8 @@
 
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f0f0f0;
-      color: #fff;
+      background-color: #fff;
+      color: #333;
       scroll-behavior: smooth;
     }
 
@@ -22,7 +22,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(34, 34, 34, 0.95);
+      background: rgba(200, 30, 30, 0.95);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       z-index: 1000;
       display: flex;
@@ -38,19 +38,19 @@
 
     .menu a {
       text-decoration: none;
-      color: #ffffff;
+      color: #fff;
       font-size: 18px;
       padding: 10px 20px;
-      background-color: rgba(60, 60, 68, 0.5);
+      background-color: rgba(255, 99, 99, 0.7);
       border-radius: 30px;
       transition: all 0.4s ease;
     }
 
     .menu a:hover {
-      color: #ff6b6b;
-      background-color: #1c1c1e;
+      color: #fff;
+      background-color: #b22222;
       transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 15px rgba(255, 99, 99, 0.4);
     }
 
     .avatar {
@@ -85,9 +85,9 @@
     }
 
     .box {
-      background: linear-gradient(135deg, #ff6b6b, #c0c0c0);
-      width: 100px; /* Lățime fixă de 100px */
-      height: 250px;
+      background: linear-gradient(135deg, #ff4d4d, #ff9999);
+      width: 85%; /* Lățime ajustată la 85% din pagină */
+      height: 100px; /* Înălțime fixă de 100px */
       border-radius: 15px;
       padding: 20px;
       margin: 20px 0;
@@ -96,29 +96,30 @@
     }
 
     .box:nth-child(even) {
-      background: linear-gradient(135deg, #1c1c1e, #c0c0c0);
+      background: linear-gradient(135deg, #ff9999, #ffcccc);
     }
 
     .box:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      background: linear-gradient(135deg, #ff6b6b, #1c1c1e);
+      background: linear-gradient(135deg, #ff3333, #ff8080);
     }
 
     .box h2 {
-      font-size: 1rem; /* Ajustăm dimensiunea fontului pentru a se încadra în box */
+      font-size: 1.5rem;
       margin-bottom: 10px;
+      color: #fff;
     }
 
     .box p {
-      font-size: 0.8rem; /* Diminuăm dimensiunea fontului pentru a se potrivi */
-      line-height: 1.4;
+      font-size: 1rem;
+      color: #fff;
     }
 
     footer {
       margin: 50px 0;
       text-align: center;
-      background-color: rgba(34, 34, 34, 0.9);
+      background-color: rgba(200, 30, 30, 0.95);
       padding: 20px;
       width: 100%;
       position: relative;
@@ -126,7 +127,7 @@
     }
 
     footer p {
-      color: #c0c0c0;
+      color: #fff;
     }
   </style>
 </head>
