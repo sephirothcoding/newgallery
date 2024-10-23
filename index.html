@@ -17,8 +17,8 @@
       background-size: cover;
       color: #333;
       display: flex;
-      height: 100vh;
       flex-direction: column;
+      min-height: 100vh;
       transition: background-color 0.5s ease, color 0.5s ease;
     }
 
@@ -99,6 +99,7 @@
       text-align: center;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, background 0.4s ease;
+      z-index: 1500; /* Ridicăm containerul peste alte elemente */
     }
 
     .info-container:hover {
@@ -170,7 +171,7 @@
     /* Buton Back to Top */
     .back-to-top {
       position: fixed;
-      bottom: 100px;
+      bottom: 80px;
       right: 20px;
       padding: 10px 15px;
       background-color: rgba(255, 99, 99, 0.7);
@@ -179,7 +180,7 @@
       cursor: pointer;
       display: none;
       transition: all 0.3s ease;
-      z-index: 1000;
+      z-index: 1500; /* Facem butonul vizibil peste toate elementele */
     }
 
     .back-to-top.show {
@@ -294,7 +295,7 @@
     // Afișarea datei și a orei curente
     function updateTime() {
       const dateElement = document.getElementById('date');
-      const timeElement = document.getElementId('time');
+      const timeElement = document.getElementById('time');
       const now = new Date();
       const date = now.toLocaleDateString();
       const time = now.toLocaleTimeString();
@@ -308,7 +309,6 @@
     function displayWeather() {
       const weatherElement = document.getElementById('weather');
       // Aici ai putea folosi un API de vreme (ex: OpenWeatherMap)
-      // Exemplu simplu static:
       weatherElement.textContent = `Vremea: 15°C, Soare`;
     }
     displayWeather();
