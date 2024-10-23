@@ -118,8 +118,8 @@
       background: linear-gradient(135deg, #ff3333, #ff8080);
     }
 
-    /* Data și ceas */
-    .date-time {
+    /* Data, ceas și meteo */
+    .date-time-meteo {
       position: fixed;
       top: 10px;
       right: 10px;
@@ -127,6 +127,7 @@
       padding: 10px;
       border-radius: 5px;
       font-size: 16px;
+      text-align: center;
     }
 
     footer {
@@ -215,9 +216,10 @@
     </nav>
   </header>
 
-  <div class="date-time">
+  <div class="date-time-meteo">
     <p id="date"></p>
     <p id="time"></p>
+    <p id="weather"></p> <!-- Afișează vremea -->
   </div>
 
   <div class="main-content">
@@ -282,6 +284,15 @@
     }
     setInterval(updateTime, 1000);
     updateTime();
+
+    // Vremea - Exemplu simplu de afișare a vremii
+    function displayWeather() {
+      const weatherElement = document.getElementById('weather');
+      // Aici ai putea folosi un API de vreme (ex: OpenWeatherMap)
+      // Exemplu simplu static:
+      weatherElement.textContent = `Vremea: 15°C, Soare`;
+    }
+    displayWeather();
 
     // Schimbarea temei
     const toggleThemeButton = document.querySelector('.toggle-theme');
