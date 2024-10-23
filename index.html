@@ -89,7 +89,7 @@
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
 
-    /* Containerul pentru ceas, data și meteo */
+    /* Containerul pentru ceas, data, meteo și vizualizări */
     .info-container {
       background: linear-gradient(135deg, skyblue, white);
       width: 80%;
@@ -273,11 +273,12 @@
         <img src="https://xatimg.com/image/uXYRleuRKhk1.png" alt="Avatar" />
       </div>
 
-      <!-- Containerul pentru ceas, data, meteo și schimbă tema -->
+      <!-- Containerul pentru ceas, data, meteo și numărul de vizualizări -->
       <div class="info-container">
         <p id="date"></p>
         <p id="time"></p>
         <p id="weather"></p> <!-- Afișează vremea -->
+        <p id="views">Vizualizări profil: <span id="viewCount">0</span></p>
         <div class="toggle-theme">Schimbă tema</div>
       </div>
     </div>
@@ -351,6 +352,12 @@
       weatherElement.textContent = `Vremea: 15°C, Soare`;
     }
     displayWeather();
+
+    // Numărătoare de vizualizări
+    let viewCount = localStorage.getItem('viewCount') || 0;
+    viewCount++;
+    document.getElementById('viewCount').textContent = viewCount;
+    localStorage.setItem('viewCount', viewCount);
 
     // Schimbarea temei
     const toggleThemeButton = document.querySelector('.toggle-theme');
