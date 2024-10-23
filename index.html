@@ -70,7 +70,7 @@
     .avatar-container {
       width: 25%;
       display: flex;
-      justify-content: flex-start; /* Aliniere la început */
+      justify-content: flex-start; /* Align to the top */
       align-items: center;
       flex-direction: column;
       background-color: transparent;
@@ -89,7 +89,7 @@
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
 
-    /* Containerul pentru ceas, data, meteo și vizualizări */
+    /* Widget container for date, time, weather, and views */
     .info-container {
       background: linear-gradient(135deg, skyblue, white);
       width: 80%;
@@ -103,12 +103,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-left: 0; /* Aliniem la stânga */
+      margin-left: 0; /* Align to the left */
     }
 
     .info-container:hover {
       transform: translateY(-10px);
-      background: linear-gradient(135deg, #87CEEB, white); /* Skyblue și alb */
+      background: linear-gradient(135deg, #87CEEB, white); /* Skyblue and white */
     }
 
     .info-container p {
@@ -171,7 +171,7 @@
       color: #fff;
     }
 
-    /* Buton Back to Top */
+    /* Back to Top Button */
     .back-to-top {
       position: fixed;
       bottom: 80px;
@@ -195,7 +195,7 @@
       color: white;
     }
 
-    /* Particule animate (fulgi de zăpadă) */
+    /* Snowflakes animation */
     .snowflakes {
       position: fixed;
       top: 0;
@@ -203,7 +203,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 2000; /* Z-index ridicat pentru a fi peste toate elementele */
+      z-index: 2000; /* High z-index to stay above all elements */
       display: flex;
       flex-wrap: wrap;
     }
@@ -231,7 +231,7 @@
       }
     }
 
-    /* Generăm mai mulți fulgi cu diferite viteze și poziții */
+    /* Generate multiple snowflakes with different speeds and positions */
     .snowflake:nth-child(odd) {
       animation-duration: 8s;
       animation-timing-function: linear;
@@ -242,7 +242,7 @@
       animation-timing-function: ease-in-out;
     }
 
-    /* Poziționăm fulgii pe întreaga lățime a paginii */
+    /* Position snowflakes across the full width of the page */
     .snowflake:nth-child(1) { left: 10%; }
     .snowflake:nth-child(2) { left: 20%; }
     .snowflake:nth-child(3) { left: 30%; }
@@ -260,9 +260,9 @@
 
   <header>
     <nav class="menu">
-      <a href="#home">Acasa</a>
-      <a href="#about">Despre</a>
-      <a href="#services">Servicii</a>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -273,45 +273,45 @@
         <img src="https://xatimg.com/image/uXYRleuRKhk1.png" alt="Avatar" />
       </div>
 
-      <!-- Containerul pentru ceas, data, meteo și numărul de vizualizări -->
+      <!-- Widget container for date, time, weather, and profile views -->
       <div class="info-container">
         <p id="date"></p>
         <p id="time"></p>
-        <p id="weather"></p> <!-- Afișează vremea -->
-        <p id="views">Vizualizări profil: <span id="viewCount">0</span></p>
-        <div class="toggle-theme">Schimbă tema</div>
+        <p id="weather"></p> <!-- Displays weather -->
+        <p id="views">Profile views: <span id="viewCount">0</span></p>
+        <div class="toggle-theme">Toggle Theme</div>
       </div>
     </div>
 
     <main class="container">
       <div class="box" id="home">
-        <h2>Bine ai venit!</h2>
-        <p>Explorează un nou univers al designului creativ și inovației.</p>
+        <h2>Welcome!</h2>
+        <p>Explore a new universe of creative design and innovation.</p>
       </div>
 
       <div class="box" id="about">
-        <h2>Despre Noi</h2>
-        <p>Suntem o echipă dedicată, specializată în crearea de site-uri web dinamice.</p>
+        <h2>About Us</h2>
+        <p>We are a dedicated team, specialized in creating dynamic websites.</p>
       </div>
 
       <div class="box" id="services">
-        <h2>Servicii</h2>
-        <p>Oferim o gamă variată de servicii, incluzând design web și dezvoltare.</p>
+        <h2>Services</h2>
+        <p>We offer a wide range of services, including web design and development.</p>
       </div>
 
       <div class="box" id="contact">
         <h2>Contact</h2>
-        <p>Nu ezita să ne contactezi pentru proiectele tale.</p>
+        <p>Don't hesitate to contact us for your projects.</p>
       </div>
     </main>
   </div>
 
   <footer>
-    <p>&copy; 2024 Sephiroth. Toate drepturile rezervate.</p>
+    <p>&copy; 2024 Sephiroth. All rights reserved.</p>
   </footer>
 
-  <!-- Buton Back to Top -->
-  <div class="back-to-top">Sus</div>
+  <!-- Back to Top Button -->
+  <div class="back-to-top">Top</div>
 
   <!-- Snowflakes -->
   <div class="snowflakes" aria-hidden="true">
@@ -333,39 +333,39 @@
   </div>
 
   <script>
-    // Afișarea datei și a orei curente
+    // Display the current date and time
     function updateTime() {
       const dateElement = document.getElementById('date');
       const timeElement = document.getElementById('time');
       const now = new Date();
       const date = now.toLocaleDateString();
       const time = now.toLocaleTimeString();
-      dateElement.textContent = `Data: ${date}`;
-      timeElement.textContent = `Ora: ${time}`;
+      dateElement.textContent = `Date: ${date}`;
+      timeElement.textContent = `Time: ${time}`;
     }
     setInterval(updateTime, 1000);
     updateTime();
 
-    // Vremea - Exemplu simplu de afișare a vremii
+    // Simple weather display
     function displayWeather() {
       const weatherElement = document.getElementById('weather');
-      weatherElement.textContent = `Vremea: 15°C, Soare`;
+      weatherElement.textContent = `Weather: 15°C, Sunny`;
     }
     displayWeather();
 
-    // Numărătoare de vizualizări
+    // Profile views counter
     let viewCount = localStorage.getItem('viewCount') || 0;
     viewCount++;
     document.getElementById('viewCount').textContent = viewCount;
     localStorage.setItem('viewCount', viewCount);
 
-    // Schimbarea temei
+    // Toggle theme
     const toggleThemeButton = document.querySelector('.toggle-theme');
     toggleThemeButton.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
     });
 
-    // Buton Back to Top
+    // Back to Top Button
     const backToTopButton = document.querySelector('.back-to-top');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
