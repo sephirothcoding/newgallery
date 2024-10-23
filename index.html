@@ -16,6 +16,8 @@
       background-color: #fff;
       color: #333;
       scroll-behavior: smooth;
+      display: flex;
+      justify-content: space-between;
     }
 
     header {
@@ -54,39 +56,38 @@
     }
 
     .avatar {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      width: 80px;
-      height: 80px;
+      width: 25%; /* Avatarul ocupă 25% din lățimea paginii */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Avatarul este aliniat vertical pe întreaga înălțime */
+    }
+
+    .avatar img {
+      width: 80%;
       border-radius: 50%;
-      overflow: hidden;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       cursor: pointer;
     }
 
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .avatar:hover {
+    .avatar img:hover {
       transform: rotate(360deg);
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
 
     .container {
+      width: 70%; /* Containerele ocupă 70% din pagină */
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
       margin-top: 100px;
     }
 
     .box {
       background: linear-gradient(135deg, #ff4d4d, #ff9999);
-      width: 85%; /* Lățime ajustată la 85% din pagină */
+      width: 85%; /* Lățime de 85% pentru containere */
       height: 100px; /* Înălțime fixă de 100px */
       border-radius: 15px;
       padding: 20px;
