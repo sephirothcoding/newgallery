@@ -89,6 +89,7 @@
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
 
+    /* Containerul pentru ceas, data și meteo */
     .info-container {
       background: linear-gradient(135deg, skyblue, white);
       width: 80%;
@@ -99,6 +100,10 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, background 0.4s ease;
       z-index: 1500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 10%; /* Alinează cu avatarul */
     }
 
     .info-container:hover {
@@ -192,13 +197,13 @@
 
     /* Particule animate (fulgi de zăpadă) */
     .snowflakes {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 2000;
+      z-index: 2000; /* Z-index ridicat pentru a fi peste toate elementele */
     }
 
     .snowflake {
@@ -224,17 +229,15 @@
       }
     }
 
-    /* Generăm fulgi în diferite locații și viteze */
+    /* Generăm mai mulți fulgi cu diferite viteze */
     .snowflake:nth-child(odd) {
       animation-duration: 8s;
       animation-timing-function: linear;
-      animation-delay: 0s;
     }
 
     .snowflake:nth-child(even) {
       animation-duration: 12s;
       animation-timing-function: ease-in-out;
-      animation-delay: 2s;
     }
 
   </style>
