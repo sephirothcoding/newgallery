@@ -5,56 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Gallery</title>
     <style>
+        /* Reset and general styles */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #00d9ff;
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.7);
         }
 
         .gallery-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
             max-width: 1200px;
             padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .gallery-item {
-            width: 30%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+        .gallery-nav {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.05);
+        .gallery-nav button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            background-color: #00d9ff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: all 0.3s ease;
+        .gallery-nav button:hover {
+            background-color: #0088a9;
+            transform: scale(1.1);
         }
 
-        .gallery-item .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-           
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.7);
+        }
+
+        /* Media queries for mobile responsiveness */
+        @media (max-width: 768px) {
+            .gallery img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .gallery-nav button {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery img {
+                width: 120px;
+                height: 120px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery-container">
+        <h1>Dynamic Gallery</h1>
+        <div class="gallery-nav">
+            <button onclick="loadImages('gifs')">GIFs</button>
+            <button onclick="loadImages('pcback')">PcBack</button>
+            <button onclick="loadImages('backgrounds')">Backgrounds</button>
+        </div>
+        <div id="gallery" class="gallery"></div>
+    </div>
+
+    <script>
+        // Function to load images based on folder name
+        function loadImages(folder) {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = ''; // Clear the gallery
+
+            // Assume we have 10 images in each folder
+            for (let i = 1; i <= 10; i++) {
+                const img = document.createElement('img');
+                img.src = `${folder}/${folder}${i}.png`; // Load images dynamically based on folder name
+                img.alt = `${folder} image ${i}`;
+                gallery.appendChild(img);
+            }
+        }
+
+        // Initial load with GIFs
+        window.onload = () => loadImages('gifs');
+    </script>
+
+</body>
+</html>
