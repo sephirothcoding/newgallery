@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Gallery</title>
+    <title>Dynamic Gallery - Home</title>
     <style>
-        /* Reset and general styles */
+        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background: linear-gradient(135deg, #232526, #414345);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,120 +24,127 @@
 
         h1 {
             text-align: center;
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #00d9ff;
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.7);
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: #f9a825;
+            text-shadow: 0 0 15px rgba(249, 168, 37, 0.8);
         }
 
-        .gallery-container {
+        .main-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
             max-width: 1200px;
+            width: 100%;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.6);
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .gallery-nav {
+        .nav-buttons {
             display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
-        }
-
-        .gallery-nav button {
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            border: none;
-            background-color: #00d9ff;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .gallery-nav button:hover {
-            background-color: #0088a9;
-            transform: scale(1.1);
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
-        .gallery img {
-            width: 200px;
+        .nav-buttons a {
+            text-decoration: none;
+            color: #fff;
+            padding: 15px 30px;
+            background-color: #f9a825;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-buttons a:hover {
+            transform: scale(1.1);
+            background-color: #c17900;
+        }
+
+        .gallery-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .gallery-preview img {
+            width: 100%;
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 217, 255, 0.7);
+        .gallery-preview img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(249, 168, 37, 0.7);
         }
 
-        /* Media queries for mobile responsiveness */
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
-            .gallery img {
-                width: 150px;
-                height: 150px;
+            .nav-buttons a {
+                padding: 10px 20px;
+                font-size: 1rem;
             }
 
-            .gallery-nav button {
-                font-size: 1rem;
+            h1 {
+                font-size: 2rem;
             }
         }
 
         @media (max-width: 480px) {
-            .gallery img {
-                width: 120px;
-                height: 120px;
+            .nav-buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .gallery-preview img {
+                height: 150px;
             }
 
             h1 {
-                font-size: 2em;
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="gallery-container">
-        <h1>Dynamic Gallery</h1>
-        <div class="gallery-nav">
-            <button onclick="loadImages('gifs')">GIFs</button>
-            <button onclick="loadImages('pcback')">PcBack</button>
-            <button onclick="loadImages('backgrounds')">Backgrounds</button>
+    <div class="main-container">
+        <h1>Welcome to Dynamic Gallery</h1>
+        
+        <div class="nav-buttons">
+            <a href="indexgif.html" target="_blank">View GIFs</a>
+            <a href="indexpcback.html" target="_blank">View PcBacks</a>
+            <a href="indexback.html" target="_blank">View Backgrounds</a>
         </div>
-        <div id="gallery" class="gallery"></div>
+
+        <div class="gallery-preview">
+            <!-- Preview Images - These are placeholders to represent each gallery -->
+            <img src="gifs/gif1.png" alt="GIF Preview">
+            <img src="pcback/pcback1.png" alt="PcBack Preview">
+            <img src="backgrounds/background1.png" alt="Background Preview">
+            <img src="gifs/gif2.png" alt="GIF Preview">
+            <img src="pcback/pcback2.png" alt="PcBack Preview">
+            <img src="backgrounds/background2.png" alt="Background Preview">
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Dynamic Gallery. All Rights Reserved.</p>
+        </div>
     </div>
-
-    <script>
-        // Function to load images based on folder name
-        function loadImages(folder) {
-            const gallery = document.getElementById('gallery');
-            gallery.innerHTML = ''; // Clear the gallery
-
-            // Assume we have 10 images in each folder
-            for (let i = 1; i <= 10; i++) {
-                const img = document.createElement('img');
-                img.src = `${folder}/${folder}${i}.png`; // Load images dynamically based on folder name
-                img.alt = `${folder} image ${i}`;
-                gallery.appendChild(img);
-            }
-        }
-
-        // Initial load with GIFs
-        window.onload = () => loadImages('gifs');
-    </script>
 
 </body>
 </html>
